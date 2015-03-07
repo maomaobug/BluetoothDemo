@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BTDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="wearable_ui">Wearable Interface</string>
+    <string name="application_ui">Application Interface</string>
+    <string name="send">Send Instruction</string>
+    <string name="app_connect">Connect</string>
+    <string name="paired_devices">Piared Devices</string>
+    <string name="discovered_devices">Discovered Devices</string>
+    <string name="discover_devices">Discover</string>
+    <string name="playlist">PlayList</string>
+    <string-array name="mocked_ui">
+        <item>@string/wearable_ui</item>
+        <item>@string/application_ui</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wearable_ui">穿戴设备界面</string>
+    <string name="application_ui">应用界面</string>
+    <string name="send">发送指令</string>
+    <string name="app_connect">连接</string>
+    <string name="paired_devices">已配对设备</string>
+    <string name="discovered_devices">已发现设备</string>
+    <string name="discover_devices">搜索设备</string>
+    <string name="playlist">播放列表</string>
+</resources>
