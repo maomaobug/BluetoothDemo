@@ -17,7 +17,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
 import de.greenrobot.event.EventBus;
+import zhang.hailing.btdemo.graph.HardwareComponent;
 import zhang.hailing.btdemo.service.BluetoothStateEvent;
 import zhang.hailing.btdemo.service.app.AppBlueToothService;
 import zhang.hailing.btdemo.service.app.AudioRecorderService;
@@ -27,8 +30,10 @@ import zhang.hailing.btdemo.service.app.AudioRecorderService;
  */
 public class AppFragment extends Fragment implements AudioRecorderService.AudioRecorderStateObserver, AppBlueToothService.CommandExecutor {
     private TextView stateView;
-    private AppBlueToothService appBlueToothService;
-    private AudioRecorderService audioRecorderService;
+    @Inject
+    AppBlueToothService appBlueToothService;
+    @Inject
+    AudioRecorderService audioRecorderService;
     private Button audioControlView;
 
     @Override
@@ -36,10 +41,11 @@ public class AppFragment extends Fragment implements AudioRecorderService.AudioR
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        appBlueToothService = new AppBlueToothService();
-        appBlueToothService.setCommandExecutor(this);
+        HardwareComponent component = ((DemoApplication) getActivity().getApplication()).getComponent();
+        audioRecorderService = component.audioRecorderService();
+        appBlueToothService = component.appBlueToothService();
 
-        audioRecorderService = new AudioRecorderService();
+        appBlueToothService.setCommandExecutor(this);
 
         EventBus.getDefault().register(this);
     }
